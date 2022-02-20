@@ -1,4 +1,4 @@
-import Friends from "../models/model.js";
+import Friends from "../models/userModel.js";
 
 export const searchFriend = (req, res) => {
   const searchVariable = req.body.name;

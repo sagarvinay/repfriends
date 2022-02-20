@@ -14,4 +14,5 @@ routes.delete("/:id", deleteFriend);
 routes.put("/", updateFav);
 routes.post("/searchFriend", searchFriend);
 routes.get("/sortFriends", sortFriends);
+
 export default routes;

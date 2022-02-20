@@ -1,4 +1,4 @@
-import Friends from "../models/model.js";
+import Friends from "../models/userModel.js";
 
 export const deleteFriend = (req, res) => {
   const { id } = req.params;

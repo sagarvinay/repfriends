@@ -12,7 +12,6 @@ export default function InputBar({ setList }) {
         name: name,
       })
       .then((res) => {
-        console.log(res);
         window.location.reload();
       });
   };
@@ -24,7 +23,6 @@ export default function InputBar({ setList }) {
         name: name,
       })
       .then((res) => {
-        console.log(res);
         setList(res.data);
       });
   };
