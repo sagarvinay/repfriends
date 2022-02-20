@@ -3,7 +3,7 @@ import "./InputBar.css";
 import { friend, searchFriend } from "../../api/api";
 import axios from "axios";
 
-export default function InputBar({ list, setList }) {
+export default function InputBar({ setList }) {
   const [name, setName] = useState("");
   const onEnter = (event) => {
     event.preventDefault();

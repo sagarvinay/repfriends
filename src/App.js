@@ -16,8 +16,8 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Header />
-      <InputBar list={list} setList={setList} />
+      <Header setList={setList} />
+      <InputBar setList={setList} />
       <FriendList list={list} />
     </div>
   );
