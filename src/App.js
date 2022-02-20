@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header/Header";
+import InputBar from "./components/InputBar/InputBar";
+import FriendList from "./components/FriendList/FriendList";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { friend } from "./api/api";
 
 function App() {
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    axios.get(friend).then((res) => {
+      setList(res.data);
+    });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <InputBar list={list} setList={setList} />
+      <FriendList list={list} />
     </div>
   );
 }
