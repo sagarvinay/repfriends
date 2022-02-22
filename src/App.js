@@ -2,23 +2,24 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import InputBar from "./components/InputBar/InputBar";
 import FriendList from "./components/FriendList/FriendList";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { friend } from "./api/api";
+import { useState } from "react";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
-  const [list, setList] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    axios.get(friend).then((res) => {
-      setList(res.data);
-    });
-  }, []);
   return (
     <div className="App">
-      <Header setList={setList} />
-      <InputBar setList={setList} />
-      <FriendList list={list} />
+      <SearchBar setUsers={setUsers} />
+      <Header currentPage={currentPage} setUsers={setUsers} />
+      <InputBar />
+      <FriendList
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        users={users}
+        setUsers={setUsers}
+      />
     </div>
   );
 }

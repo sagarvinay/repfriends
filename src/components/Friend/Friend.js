@@ -9,22 +9,27 @@ import "./Friend.css";
 export default function Friend({ friend }) {
   const deleteFriend = () => {
     const id = friend._id;
-    axios.delete(`${friendApi}/${id}`).then((res) => {
-      console.log(res);
-      window.location.reload();
-    });
+    axios
+      .delete(`${friendApi}/${id}`)
+      .then((res) => {
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log("Error In deleting friend", err);
+      });
   };
 
   const changeFav = () => {
-    console.log(friend.isFavourite);
     axios
       .put(friendApi, {
         id: friend._id,
         isFavourite: friend.isFavourite,
       })
       .then((res) => {
-        console.log(res);
         window.location.reload();
+      })
+      .catch((err) => {
+        console.log("Error in changing fav flag", err);
       });
   };
   return (

@@ -5,14 +5,17 @@ import { postFriend } from "../controllers/postFriend.js";
 import { updateFav } from "../controllers/updateFav.js";
 import { searchFriend } from "../controllers/searchFriend.js";
 import { sortFriends } from "../controllers/sortFriends.js";
+import { pagination } from "../controllers/pagination.js";
 
 const routes = express.Router();
 
-routes.get("/", getAllFriends);
+routes.get("/:num?", getAllFriends);
 routes.post("/", postFriend);
 routes.delete("/:id", deleteFriend);
 routes.put("/", updateFav);
 routes.post("/searchFriend", searchFriend);
-routes.get("/sortFriends", sortFriends);
+routes.post("/sortFriends", sortFriends);
+
+routes.post("/page", pagination);
 
 export default routes;
